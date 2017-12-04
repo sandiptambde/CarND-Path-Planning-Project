@@ -15,8 +15,8 @@ Goals of this project are the following:
 
 [//]: # (Image References)
 [image1]: ./examples/p1.png
-[image2]: ./examples/p2.jpg
-[image3]: ./examples/p3.jpg
+[image2]: ./examples/p2.png
+
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/1020/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -32,8 +32,10 @@ You're reading it!
 Please check [main.cpp](https://github.com/sandiptambde/CarND-Path-Planning-Project/blob/master/src/main.cpp) for the implemenation.
 
 There are two parts of the solution
+
 1. Trajectory Generation
 - I have used 'Project Walkthrough and Q&A' by Aaron & David as reference for this implementation
+
 
 
 2. Behavior Planning
@@ -58,6 +60,7 @@ line 423:
 	
 			}
 ``` 
+
 - Car will stay in the same lane as long as there is no front vehicle close it(30m).
   To detect the vehicle, we compare S-distance of each car to our car in the same lane 
 ```
@@ -69,11 +72,13 @@ line 274:
 
 			}
 ```
+
 - If vehicle is close then we prepare for lane change
 To change the lane, we check 3 condition:
 1. Vehicle infront is very close(30m) 
 2. ref_vel is less than 36 mph (works well with this value based on trial & error)
 3. There is no Car in another lane which is less than 30m to our car in S-Coordinate system 
+
 
 Then we change lane as -
 ```
@@ -96,17 +101,21 @@ else
 
 ```
 
-Result:
+
+**Result**:
 My Car is sucessfully able to drive 32miles with this implementation
 
-32miles:
-![alt text][image1]
+1. 32miles:
 
-lane change:
 ![alt text][image2]
 
 
-Challenges and issues:
+2. lane change:
+
+![alt text][image1]
+
+
+**Challenges and issues**:
 1. If vehicle in-front suddenly applies break, sometimes accident occures
 2. Take vehicles in back side into consideration
 
